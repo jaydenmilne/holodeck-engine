@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "Holodeck.h"
+#include "Conversion.h"
 #include "Uav.h"
 
 //All in radians. (rad/s, rad/s^2, etc.)
@@ -44,8 +45,8 @@ void AUav::ApplyForces() {
 
 	FVector LocalThrust = FVector(0, 0, ThrustToApply);
 	FVector LocalTorque = FVector(RollTorqueToApply, PitchTorqueToApply, YawTorqueToApply);
-	LocalThrust *= UEUnitsPerMeter;
-	LocalTorque *= UEUnitsPerMeterSquared;
+	LocalThrust = ConvertLinearVector(LocalThrust, ClientToUE);
+	LocalTorque = ConvertTorque(LocalTorque, ClientToUE);
 
 	// Apply torques and forces in global coordinates
 	RootMesh->AddTorqueInRadians(GetActorRotation().RotateVector(LocalTorque));

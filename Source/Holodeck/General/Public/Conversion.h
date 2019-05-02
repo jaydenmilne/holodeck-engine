@@ -2,9 +2,6 @@
 
 #include "Holodeck.h"
 
-const float UEUnitsPerMeter = 100.0;
-const float UEUnitsPerMeterSquared = 10000;
-
 enum ConvertType {UEToClient, ClientToUE, NoScale};
 
 FVector ConvertLinearVector(FVector Vector, ConvertType Type);

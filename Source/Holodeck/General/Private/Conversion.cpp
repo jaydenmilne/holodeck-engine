@@ -1,6 +1,9 @@
 #include "Holodeck.h"
 #include "Conversion.h"
 
+const float UEUnitsPerMeter = 100.0;
+const float UEUnitsPerMeterSquared = 10000;
+
 FVector ConvertLinearVector(FVector Vector, ConvertType Type) {
 
 	float ScaleFactor = 1.0;
